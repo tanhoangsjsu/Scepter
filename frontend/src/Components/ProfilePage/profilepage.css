@@ -1,0 +1,46 @@
+.profile-page {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15rem;
+}
+
+.profile-page-header {
+    text-align: center;
+}
+.profile-page .profile-card{
+    width: 15rem;
+    border: 15px solid linear-gradient(135deg, rgb(255, 255, 255, 15%), rgb(21, 25, 31, 0%));
+    padding: 1rem;
+    margin: 20px;
+    background-image: linear-gradient(135deg, rgb(255, 255, 255, 15%), rgb(21, 25, 31, 0%));
+
+    cursor: pointer;
+    border-radius: 10px;
+
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 3em;
+
+    z-index: 5;
+
+    transition: all ease;
+    
+}
+.profile-page .profile-card:hover{
+    filter: drop-shadow(0 0 0px rgb(255, 255, 255, 60%));
+    color: rgb(255, 255, 255, 80%);
+}
+.profile-page .signout-button button{
+    background-color: black;
+    color: #FF6254;
+    font-weight: 800;
+
+    padding:1rem 5.5rem 1rem ;
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}

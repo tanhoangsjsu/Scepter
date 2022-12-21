@@ -1,0 +1,87 @@
+.login-container {
+    text-align: center;
+    background-color: #1B232A;
+    
+  }
+  .login-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    min-width: 100%;
+    margin-top: 2rem;
+  }
+  .login-input > form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 200;
+    font-size: 0.85rem;
+  }
+  input {
+    font-size: 1rem;
+    padding: .65rem;
+    border: none;
+    font-family: "Noto Sans",sans-serif;
+    margin: 1.25rem 0;
+    width: 100%;
+  }
+
+  .login-title {
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36px;
+    font-size: 1.75rem;
+    
+    padding: 1.25rem;
+
+    color: #777777;
+    background-color: #1B232A;
+    background-image: linear-gradient(180deg, #5BC99F 28.65%, #55EEDD 100%);;
+
+  }
+  
+  .login-password,
+  .login-username {
+    font-size: 0.85rem;
+  }
+  
+  
+  .username-label,
+  .password-label {
+    font-size: 0.85rem;
+  }
+ .login-input button{
+    cursor: pointer;
+    align-self: center;
+    margin-top: 1rem;
+    border-radius: 10px;
+
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 15px;
+
+    padding: .75rem;
+    color: #777777;
+    background-color: #55EEDD;
+  }
+  .login-register{
+    margin: 2rem 1rem 0 1rem;
+    font-size: 1rem;
+  }
+  .login-register-link{
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-weight: 700;
+    color: #7bc5fa;
+  }
+  .loginError {
+    margin-top:1rem;
+    font-size:1rem;
+    color:rgb(255, 77, 77);
+  }

@@ -1,0 +1,114 @@
+.register-container {
+    text-align: center;
+    background-color: #1B232A;
+
+  }
+  .register-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    min-width: 100%;
+    margin-top: 3rem;
+  }
+  .register-input input {
+    font-size: .85rem;
+    padding: .65rem;
+    font-family: "Noto Sans",sans-serif;
+    margin: 1.25rem 0;
+    width: 100%;
+  }
+  .register-title {
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36px;
+    font-size: 1.75rem;
+    
+    padding: 1.25rem;
+
+    color: #777777;
+    background-color: #1B232A;
+    background-image: linear-gradient(180deg, #5BC99F 28.65%, #55EEDD 100%);;
+
+  
+  }
+  
+  .register-email,
+  .register-password,
+  .register-username {
+    font-size: 0.85rem;
+  }
+  
+  .register-error {
+    margin-top: 1rem;
+    align-self: center;
+    color: rgb(255, 0, 55);
+  }
+  
+  .email-label,
+  .username-label,
+  .password-label {
+    font-size: 0.85rem;
+  }
+  
+  .register-login {
+    font-size: 1rem;
+    margin-top: 2rem;
+  }
+  .register-login-link {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+    color: #7bc5fa;
+    font-weight: 700;
+  }
+  .errorMsg {
+    text-align: start;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgb(253, 81, 81);
+    margin-bottom: 1rem;
+  }
+  .register-err {
+    font-size: 0.85rem;
+    color: rgb(255, 77, 77);
+  }
+  .register-input > form {
+    display: flex;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-direction: column;
+    max-width: 200px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .register-input button{
+    cursor: pointer;
+    align-self: center;
+    margin-top: 1rem;
+    border-radius: 10px;
+
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 15px;
+
+    padding: .75rem;
+    color: #777777;
+    background-color: #55EEDD;
+  }
+  select{
+    background-color: #F3F4F6;
+    border: 1px solid #E5E7EB;
+    display: block;
+    font-size: 0.9375rem;
+    height: 2.625rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    outline: none;
+    padding: 0 1rem;
+    width: 100%;
+  }

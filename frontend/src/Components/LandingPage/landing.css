@@ -1,0 +1,85 @@
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Sora", sans-serif;
+    background-color: #1B232A;
+    background-image: linear-gradient(180deg, rgba(91, 202, 164, 0.0140625) 49.25%, rgba(94, 213, 204, 0.15) 109.67%);
+    color:#777777;
+    height: 120vh;
+    overflow: hidden;
+    text-shadow:
+    0.07em 0 #777777,
+    0 0.07em #777777,
+    -0.07em 0 #777777,
+    0 -0.07em #777777,
+  }
+  .landing-header {
+    color: #55EEDD;
+    margin-top: 3.2rem;
+    font-size: 48px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 900;
+  }
+  .beta {
+    font-size: 14px;
+    background-color: #55EEDD;
+    padding:0.65rem;
+    
+
+    
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+  }
+
+  .landing-sub {
+    font-size: 20px;
+    margin-top: 1rem;
+    
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+  }
+  .phone-mockup {
+    margin-top: 0.5rem;
+  }
+  .login {
+    
+    border-radius: 14px;
+    font-family: "Sora", sans-serif;
+    padding: 8px 15px;
+    width: 118px;
+    height: 53px;
+
+    font-size: 18px;
+    background-color: #55EEDD;
+    color:#777777;
+    text-shadow:
+    0.07em 0 #777777,
+    0 0.07em #777777,
+    -0.07em 0 #777777,
+    0 -0.07em #777777,
+
+  }
+  .register {
+    margin-top: 2rem;
+    border-radius: 14px;
+    font-family: "Sora", sans-serif;
+    font-size: 18px;
+    width: 118px;
+    height: 53px;
+    padding: 8px 15px;
+    background-color: #55EEDD;
+    color:#777777;
+    text-shadow:
+    0.07em 0 #777777,
+    0 0.07em #777777,
+    -0.07em 0 #777777,
+    0 -0.07em #777777,
+  }
