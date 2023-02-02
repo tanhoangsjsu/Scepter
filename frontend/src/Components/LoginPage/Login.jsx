@@ -12,7 +12,7 @@ const LoginPage = () => {
     const [password, setPassword] = useState('password')
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const socket = io('https://scepter.onrender.com', {reconnect: true});
+    const socket = io('https://scepter.onrender.com:8000', {reconnect: true});
     const handleLogin = (e) =>{
         e.preventDefault();
         if(userName.length ===0 || password.length===0){

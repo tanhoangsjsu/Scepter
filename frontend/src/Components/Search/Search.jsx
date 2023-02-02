@@ -36,7 +36,7 @@ const Search = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.login.currentUser);
   const mapData = useSelector((state) => state.tripInfo.trip);
-  const socket = io.connect("https://scepter.onrender.com");
+  const socket = io.connect("https://scepter.onrender.com:8000");
   const pickupLongtitude = useSelector((state) => state.pickup.longtitude);
   const pickupLattitude = useSelector((state) => state.pickup.lattitude);
   const dropoffLongtitude = useSelector((state) => state.dropoff.longtitude);

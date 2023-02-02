@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
     const user = useSelector((state) => state.auth.login.currentUser);
-    const socket = io('http://localhost:8000', {reconnect: true});
+    const socket = io('https://scepter.onrender.com:8000', {reconnect: true});
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const handleSignOut =()=>{
