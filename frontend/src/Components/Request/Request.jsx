@@ -7,7 +7,8 @@ import { useState } from "react";
 import Loading from "../Loading/Loading";
 import { deleteOneRequest } from "../../redux/apiRequest";
 import axios from "axios";
-const socket = io.connect("http://localhost:8000")
+const socket = io.connect("https://scepter.onrender.com")
+import { baseURL } from "../../utils/listContainer";
 
 const Request = () => {
     const [receive,setReceive] = useState([])
@@ -30,7 +31,7 @@ const Request = () => {
     },[socket])
 
     useEffect(()=>{
-        axios.get('http://localhost:8000/v1/request/',{
+        axios.get(`${baseURL}/request/`,{
             headers: {token: `Bearer ${accessToken}`}
     }).then(res=>{
             setReceive(res.data)

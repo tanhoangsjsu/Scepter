@@ -10,7 +10,7 @@ import Noti from '../PopupBox/Noti';
 const Popup = (props) => {
     const {open, setOpen, isLoading, setLoading} = props
     const [noti,setNoti] = useState([])
-    const socket = io.connect("http://localhost:8000")
+    const socket = io.connect("https://scepter.onrender.com")
     useEffect(()=>{
         socket.on("receive_notification",(data)=>{
             if(data.length === 0){
