@@ -11,14 +11,15 @@ import {
         logoutSuccess,
     } from "./authSlice"
 import { createRequest, deleteRequest, getRequest } from "./requestSlice";
-axios.defaults.baseURL = 'http://localhost:8000/';
+import { baseURL } from "../utils/listContainer";
+axios.defaults.baseURL = 'https://scepter.onrender.com';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 //AUTH
 export const loginUser = async ( user, dispatch, navigate)=>{
     dispatch(loginStart());
     try {
-        const res = await axios.post("v1/auth/login", user);
+        const res = await axios.post(`${baseURL}/auth/login`, user);
         dispatch(loginSuccess(res.data))
         navigate("/homepage");
     } catch (error) {
@@ -29,7 +30,7 @@ export const loginUser = async ( user, dispatch, navigate)=>{
 export const registerUser = async (user, dispatch, navigate) => {
     dispatch(registerStart());
     try {
-      await axios.post(`v1/auth/register`, user);
+      await axios.post(`${baseURL}/auth/register`, user);
       dispatch(registerSuccess());
       navigate("/login");
     } catch (err) {
@@ -40,7 +41,7 @@ export const registerUser = async (user, dispatch, navigate) => {
 export const logOutUser = async (dispatch, userId, accessToken,navigate) => {
     dispatch(logoutStart());
     try {
-        await axios.post('v1/auth/logout', userId,
+        await axios.post(`${baseURL}/auth/logout`, userId,
         {headers: {token: `Bearer ${accessToken}`}}
             );
         dispatch(logoutSuccess());
@@ -52,7 +53,7 @@ export const logOutUser = async (dispatch, userId, accessToken,navigate) => {
 //REQUEST 
 export const makeRequest = async(request,dispatch) =>{
     try {
-        const res = await axios.post('/v1/request/',request)
+        const res = await axios.post(`${baseURL}/request/`,request)
         dispatch(createRequest(res.data))
     } catch (error) {
         console.log(error)
@@ -60,7 +61,7 @@ export const makeRequest = async(request,dispatch) =>{
 }
 export const getAllRequest = async(dispatch,accessToken) =>{
     try {
-        const res = await axios.get('/v1/request/',{headers: {token: `Bearer ${accessToken}`}})
+        const res = await axios.get(`${baseURL}/request/`,{headers: {token: `Bearer ${accessToken}`}})
         console.log(res.data)
         dispatch(getRequest(res.data))
     } catch (error) {
@@ -70,7 +71,7 @@ export const getAllRequest = async(dispatch,accessToken) =>{
 
 export const deleteOneRequest = async(accessToken,dispatch,id) =>{
     try {
-        const res = await axios.delete("/v1/request/"+id,{
+        const res = await axios.delete(`${baseURL}/request/`+id,{
             headers: {token : `Bearer ${accessToken}`}
         })
         dispatch(deleteRequest(res.data));
