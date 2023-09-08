@@ -67,6 +67,27 @@ const authSlice = createSlice({
             state.logout.error = true;
             state.logout.success = false;
         },
+         // New action for Google login
+        loginWithGoogle: (state, action) => {
+            state.login.isFetching = false;
+            state.login.currentUser = action.payload;
+            state.login.success = true;
+            state.login.error = false;
+        },
+        logoutWithGoogle: (state) => {
+            // Set state properties to reflect a successful Google logout
+            state.login.currentUser = null;
+            state.login.success = false;
+            // ...
+        },
+        resetAuthState :(state) => {
+            state.login.currentUser = null;
+            state.login.isFetching = false;
+            state.login.error = false;
+            state.login.success = false;
+            state.login.message = null;
+            // Reset other state properties as needed
+        }
     }
 });
 export const {
@@ -79,5 +100,8 @@ export const {
     logoutStart,
     logoutSuccess,
     logoutFailed,
+    loginWithGoogle,
+    logoutWithGoogle,
+    resetAuthState
 } = authSlice.actions;
 export default authSlice.reducer

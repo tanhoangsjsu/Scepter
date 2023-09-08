@@ -24,7 +24,7 @@ const AssistanceModal = () => {
           <div className="user-name">{user.username}</div>
           <img
             className="user-img"
-            src={UserImage}
+            src={user.userImage || UserImage} // Use the default image if userImage is not available
             onClick={handleProfile}
           ></img>
         </div>

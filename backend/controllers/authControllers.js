@@ -37,6 +37,10 @@ loginUser : async(req,res)=>{
     const { username, password} = req.body;
     try {
         const user = await User.findOne({username})
+         // Check if either username or password is empty
+        if (!username || !password) {
+            return res.status(400).json("Please enter both username and password.");
+        }
         if(!user){
             return res.status(404).json("Wrong username");
         }
