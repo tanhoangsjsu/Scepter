@@ -12,7 +12,7 @@ import {
     } from "./authSlice"
 import { createRequest, deleteRequest, getRequest } from "./requestSlice";
 import { baseURL } from "../utils/listContainer";
-axios.defaults.baseURL = 'localhost:8000/v1';
+axios.defaults.baseURL = 'https://scepter.onrender.com';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 //AUTH
