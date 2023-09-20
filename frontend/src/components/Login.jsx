@@ -1,19 +1,19 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import "./login.css"
-import { loginUser  } from "../../redux/apiRequest";
-import { loginWithGoogle } from "../../redux/authSlice";
+import "../App.css"
+import { loginUser  } from "../redux/apiRequest";
+import { loginWithGoogle } from "../redux/authSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { io } from "socket.io-client"
-import Loading from "../Loading/Loading";
 import Button from '@mui/material/Button';
 import GoogleIcon from '@mui/icons-material/Google';
-import { auth, provider } from "../../firebase/config";
-import { GoogleAuthProvider, signInWithPopup, getAuth } from "firebase/auth";
+import {  provider } from "../firebase/config";
+import { signInWithPopup, getAuth } from "firebase/auth";
 import {  
     loginStart, 
     resetAuthState 
-} from "../../redux/authSlice"
+} from "../redux/authSlice"
+import Loading from "./Loading";
+
 const LoginPage = () => {
     const error = useSelector((state) => state.auth.login.message);
     const loading = useSelector((state) => state.auth.login?.isFetching);
@@ -22,8 +22,8 @@ const LoginPage = () => {
     const [fieldError, setFieldError] = useState("");
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    // const socket = io('https://scepter.onrender.com:8000', {reconnect: true});
-     // Add this useEffect hook to reset the state on page load
+
+
     useEffect(() => {
         dispatch(resetAuthState());
     }, [dispatch]);
@@ -39,6 +39,7 @@ const LoginPage = () => {
                 // socketId: socket.id,
             };
             dispatch(loginStart()); // Manually reset loading state
+            
             loginUser(newUser,dispatch, navigate)
             // socket.emit("Login",userName)
         }
@@ -47,7 +48,6 @@ const LoginPage = () => {
     const handleLoginWithGoogle = async () => {
         try {
           const result = await signInWithPopup(auth, provider);
-          console.log(result.user);
           if (result.user) {
             // You can customize the data structure you want to store in Redux.
             const userData = {
@@ -93,10 +93,10 @@ const LoginPage = () => {
         {loading ? (
         <Button className="login-submit-button" type="submit">
             <Loading
-            loadingType="HashLoader"
+            loadingType="SyncLoader"
             color="#777777"
             loading={loading}
-            size="30px"
+            size="10px"
             />
         </Button>
         ) : (
@@ -127,7 +127,7 @@ const LoginPage = () => {
         <div className ="login-register-google">or login as a student with</div>
         <Button 
             className="login-google-button"
-            startIcon={<GoogleIcon style={{ marginLeft: '10px' }} />} // Adjust margin as needed
+            startIcon={<GoogleIcon style={{ marginLeft: '10px' }} />} 
             onClick={handleLoginWithGoogle}
             color="error"
         >

@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+require('dotenv').config();
 
 const middlewareController ={
 
@@ -7,7 +8,7 @@ const middlewareController ={
         const token = req.headers.token;
         if(token){
             const accessToken = token.split(" ")[1];
-            jwt.verify(accessToken, "sceptersecretkey", (err,user)=>{
+            jwt.verify(accessToken, process.env.JWT_SECRET, (err,user)=>{
                 if(err){
                     res.status(403).json("Token is not valid");
                 }

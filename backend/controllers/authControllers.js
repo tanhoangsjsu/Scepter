@@ -1,12 +1,13 @@
 var User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+require('dotenv').config();
 
 
 const authController = {
 //REGISTER
 registerUser: async (req, res) => {
-    const { username, email, password, role} = req.body;
+    const { username, email, password, role, driverLicense} = req.body;
 try {
     const salt = await bcrypt.genSalt(10);
     const hashed = await bcrypt.hash(password, salt);
@@ -17,6 +18,7 @@ try {
     email: email,
     password: hashed,
     role: role,
+    driverLicense: driverLicense
     });
     //Save user to DB
     const user = await newUser.save();
@@ -24,7 +26,7 @@ try {
         id: user.id,
         username: user.username,
     },
-    "sceptersecretkey",
+    process.env.JWT_SECRET,
     {expiresIn:"2h"}
     );
     res.status(200).json({user, accessToken});
@@ -55,7 +57,7 @@ loginUser : async(req,res)=>{
                 id: user.id,
                 username: user.username,
             },
-            "sceptersecretkey",
+            process.env.JWT_SECRET,
             {expiresIn:"2h"}
             );
             const {password, ...others} = user._doc;
@@ -68,7 +70,7 @@ loginUser : async(req,res)=>{
   //LOG OUT
     logOut: async (req, res) => {
     //Clear cookies when user logs out
-    // res.clearCookie("refreshToken");
+    res.clearCookie("refreshToken");
     res.status(200).json("Logged out successfully!");
 },
 

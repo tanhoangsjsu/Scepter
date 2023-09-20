@@ -12,7 +12,7 @@ import {
     } from "./authSlice"
 import { createRequest, deleteRequest, getRequest } from "./requestSlice";
 import { baseURL } from "../utils/listContainer";
-axios.defaults.baseURL = 'https://scepter.onrender.com';
+axios.defaults.baseURL = 'localhost:8000/v1';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 //AUTH
@@ -38,11 +38,10 @@ export const registerUser = async (user, dispatch, navigate) => {
       dispatch(registerFailed(err.response.data));
     }
   };
-export const logOutUser = async (dispatch, userId, accessToken,navigate) => {
+export const logOutUser = async (dispatch, userId, navigate) => {
     dispatch(logoutStart());
     try {
         await axios.post(`${baseURL}/auth/logout`, userId,
-        {headers: {token: `Bearer ${accessToken}`}}
             );
         dispatch(logoutSuccess());
         navigate("/login");
@@ -59,20 +58,20 @@ export const makeRequest = async(request,dispatch) =>{
         console.log(error)
     }
 }
-export const getAllRequest = async(dispatch,accessToken) =>{
+export const getAllRequest = async (dispatch) => {
     try {
-        const res = await axios.get(`${baseURL}/request/`,{headers: {token: `Bearer ${accessToken}`}})
-        console.log(res.data)
-        dispatch(getRequest(res.data))
+      const res = await axios.get(`${baseURL}/request/`);
+      dispatch(getRequest(res.data));
+      return res; // Return the response data
     } catch (error) {
-        console.log(error)
+      console.error("Error fetching requests:", error);
+      throw error; // Rethrow the error to handle it in the component
     }
-}
+  };
 
-export const deleteOneRequest = async(accessToken,dispatch,id) =>{
+export const deleteOneRequest = async(dispatch,id) =>{
     try {
         const res = await axios.delete(`${baseURL}/request/`+id,{
-            headers: {token : `Bearer ${accessToken}`}
         })
         dispatch(deleteRequest(res.data));
     } catch (error) {

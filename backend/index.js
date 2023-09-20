@@ -21,49 +21,68 @@ const io = new Server(server, {
   },
 });
 
-// const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8000;
 
-// // User management for socket.io
-// let onlineUsers = [];
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
-// const addNewUser = (username, socketId) => {
-//   if (!onlineUsers.some((user) => user.username === username)) {
-//     onlineUsers.push({ username, socketId });
-//   }
-// };
+// ...
 
-// const removeUser = (socketId) => {
-//   onlineUsers = onlineUsers.filter((user) => user.socketId !== socketId);
-// };
+app.use('/mapbox', createProxyMiddleware({ target: 'https://api.mapbox.com', changeOrigin: true }));
 
-// const getUser = (username) => {
-//   return onlineUsers.find((user) => user.username === username);
-// };
 
-// io.on('connection', (socket) => {
-//   socket.on("Login", (username) => {
-//     console.log('User logged in!', socket.id);
-//     addNewUser(username, socket.id);
-//   });
+// User management for socket.io
+let onlineUsers = [];
 
-//   socket.on("disconnect", () => {
-//     removeUser(socket.id);
-//   });
+const addNewUser = (username, socketId) => {
+  if (!onlineUsers.some((user) => user.username === username)) {
+    onlineUsers.push({ username, socketId });
+  }
+};
 
-//   socket.on("send_request", (data) => {
-//     socket.broadcast.emit("receive_request", data);
-//     console.log(data);
-//   });
+const removeUser = (socketId) => {
+  onlineUsers = onlineUsers.filter((user) => user.socketId !== socketId);
+};
 
-//   socket.on("send_notification", (data) => {
-//     socket.broadcast.emit("receive_notification", data);
-//     console.log(data);
-//   });
-// });
+const getUser = (username) => {
+  return onlineUsers.find((user) => user.username === username);
+};
 
-// server.listen(port, () => {
-//   console.log(`Socket.IO server running at http://localhost:${port}`);
-// });
+io.on('connection', (socket) => {
+  socket.on("Login", (username) => {
+    console.log('User logged in!', socket.id);
+    addNewUser(username, socket.id);
+  });
+
+  socket.on("disconnect", () => {
+    removeUser(socket.id);
+  });
+
+  socket.on("send_request", (data) => {
+    socket.broadcast.emit("receive_request", data);
+    console.log(data);
+  });
+
+  socket.on("send_notification", (data) => {
+    socket.broadcast.emit("receive_notification", data);
+    console.log(data);
+  });
+  
+  socket.on("send_private_message", ({ roomName, message }) => {
+    // Send the message to the specific private chat room
+    io.to(roomName).emit("receive_private_message", message);
+  });
+
+  socket.on("join_private_chat", ({ sender, receiver }) => {
+    const roomName = `${sender}_${receiver}`;
+    socket.join(roomName);
+    // Notify the sender that they have joined the private chat
+    socket.emit("private_chat_joined", roomName);
+  });
+});
+
+server.listen(port, () => {
+  console.log(`Socket.IO server running at http://localhost:${port}`);
+});
 
 app.use(express.json());
 app.use(cors());

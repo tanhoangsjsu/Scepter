@@ -1,10 +1,12 @@
 import { configureStore, combineReducers} from '@reduxjs/toolkit'
 import authReducer from './authSlice'
-import startLocationReducer from "./startLocationSlice"
-import endLocationReducer from "./endLocationSlice"
+
 import requestReducer from "./requestSlice"
 import mapReducer from './mapSlice'
+import addressReducer from './locationSlice'
+import rideReducer from './rideSlice';
 import storage from "redux-persist/lib/storage";
+
 import {
     persistStore,
     persistReducer,
@@ -24,10 +26,10 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    pickup: startLocationReducer, 
-    dropoff: endLocationReducer,
     request: requestReducer,
     tripInfo: mapReducer,
+    address: addressReducer,
+    ride: rideReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

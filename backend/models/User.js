@@ -23,6 +23,10 @@ const userSchema = new mongoose.Schema({
         type:String,
         require: true,
     },
+    driverLicense:{
+        type:String,
+        require: false,
+    },
 },{timestamps: true})
 
 module.exports = mongoose.model("User", userSchema)

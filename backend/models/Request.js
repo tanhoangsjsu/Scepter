@@ -1,25 +1,21 @@
 const mongoose = require("mongoose");
 
 const requestSchema = new mongoose.Schema({
-    username:{
+    requestor:{
         type:String,
         required: true,
     },
-    pickupAddress:{
+    pickup:{
         type:String,
         require:true,
     },
-    dropoffAddress:{
+    destination:{
         type:String,
         require:true,
     },
-    duration:{
-        type:Number,
-        require:true,
-    },
-    distance:{
-        type:Number,
-        require:true,
+    status: {
+        type: Number,
+        default: 0, // You can define different status codes for the ride
     },
     isActive:{
         type: Boolean,

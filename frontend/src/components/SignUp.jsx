@@ -1,9 +1,9 @@
 import { useRef} from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./signup.css";
+import "../App.css"
 import {useFormik} from "formik"
 import * as Yup from "yup"
-import { registerUser } from "../../redux/apiRequest";
+import { registerUser } from "../redux/apiRequest";
 import { useDispatch } from "react-redux";
 
 const SignUp = () => {  
@@ -12,6 +12,18 @@ const SignUp = () => {
     const roleRef = useRef(null);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const generateUniqueIdentifier = () => {
+     
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let uniqueIdentifier = '';
+    
+        for (let i = 0; i < 8; i++) {
+            uniqueIdentifier += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+    
+        return 'DL-' + uniqueIdentifier; // You can customize the format based on your requirements
+    };
+    
     const formik = useFormik({
         initialValues:{
             email:"",
@@ -39,13 +51,15 @@ const SignUp = () => {
 
         onSubmit:(values)=>{
             let currentRole = roleRef.current.value
-            console.log(values)
             const newUser = {
                 email: values.email,
                 username: values.username,
                 password: values.password,
                 role: currentRole,
+                // Generate a unique identifier (e.g., driver license) for assistance
+                driverLicense: currentRole === 'assistance' ? generateUniqueIdentifier() : '',
             };
+            console.log(newUser);
             registerUser(newUser, dispatch, navigate)
         }
     })

@@ -5,11 +5,11 @@ const requestController = {
         try {
             //create new request 
             const newRequest = await new Request({
-                username: req.body.username,
-                pickupAddress: req.body.pickup,
-                dropoffAddress: req.body.dropoff,
-                duration: req.body.duration,
-                distance: req.body.distance,
+                rideUuid: req.body.rideUuid,
+                requestor: req.body.requestor,
+                pickup: req.body.pickup,
+                destination: req.body.destination,
+                status: req.body.status,
             })
             //save to DB 
             const request = await newRequest.save();

@@ -49,3 +49,361 @@ body {
   flex-direction: column;
   margin-bottom: 5rem;
 }
+.home-container{
+  padding: 0.2rem;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+.map-container{
+  flex: 1.3;
+  height: 3rem;
+}
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Sora", sans-serif;
+  background-color: #1B232A;
+  background-image: linear-gradient(180deg, rgba(91, 202, 164, 0.0140625) 49.25%, rgba(94, 213, 204, 0.15) 109.67%);
+  color:#777777;
+  height: 120vh;
+  overflow: hidden;
+  text-shadow:
+  0.07em 0 #777777,
+  0 0.07em #777777,
+  -0.07em 0 #777777,
+  0 -0.07em #777777,
+}
+.landing-header {
+  color: #55EEDD;
+  margin-top: 3.2rem;
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-weight: 900;
+}
+.beta {
+  font-size: 14px;
+  background-color: #55EEDD;
+  padding:0.65rem;
+  
+
+  
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  border-radius: 10px;
+}
+
+.landing-sub {
+  font-size: 20px;
+  margin-top: 1rem;
+  
+}
+.search__result {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.search__result-item { 
+  border-bottom: 1px solid #ccc;
+  color: #1B232A;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: max-content auto;
+  padding: 0.75rem 0;
+  padding-left: 0.5rem;
+}
+
+.search__result-item:hover { 
+  cursor: pointer;
+  background: #F3F4F6;
+}
+
+.search__result-icon {
+  align-items: center;
+  background: #ccc;
+  border-radius: 50%;
+  display: grid;
+  height: 1.5rem;
+  justify-content: center;
+  width: 1.5rem;
+}
+
+.search__result-icon svg {
+  fill: #fff;
+  height: 0.75rem;
+  width: 0.75rem;
+}
+.leaflet-routing-alt{
+  color:#1B232A
+}
+.button-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+.phone-mockup {
+  margin-top: 0.5rem;
+}
+.login {
+  
+  border-radius: 14px;
+  font-family: "Sora", sans-serif;
+  padding: 8px 15px;
+  width: 118px;
+  height: 53px;
+
+  font-size: 18px;
+  background-color: #55EEDD;
+  color:#777777;
+  text-shadow:
+  0.07em 0 #777777,
+  0 0.07em #777777,
+  -0.07em 0 #777777,
+  0 -0.07em #777777,
+
+}
+.register {
+  margin-top: 2rem;
+  border-radius: 14px;
+  font-family: "Sora", sans-serif;
+  font-size: 18px;
+  width: 118px;
+  height: 53px;
+  padding: 8px 15px;
+  background-color: #55EEDD;
+  color:#777777;
+  text-shadow:
+  0.07em 0 #777777,
+  0 0.07em #777777,
+  -0.07em 0 #777777,
+  0 -0.07em #777777,
+}
+
+.register-container {
+  text-align: center;
+  background-color: #1B232A;
+
+}
+.register-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  min-width: 100%;
+  margin-top: 3rem;
+}
+.register-input input {
+  font-size: .85rem;
+  padding: .65rem;
+  font-family: "Noto Sans",sans-serif;
+  margin: 1.25rem 0;
+  width: 100%;
+}
+.register-title {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  font-size: 1.75rem;
+  
+  padding: 1.25rem;
+
+  color: #777777;
+  background-color: #1B232A;
+  background-image: linear-gradient(180deg, #5BC99F 28.65%, #55EEDD 100%);;
+
+
+}
+
+.register-email,
+.register-password,
+.register-username {
+  font-size: 0.85rem;
+}
+
+.register-error {
+  margin-top: 1rem;
+  align-self: center;
+  color: rgb(255, 0, 55);
+}
+
+.email-label,
+.username-label,
+.password-label {
+  font-size: 0.85rem;
+}
+
+.register-login {
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+.register-login-link {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 1rem;
+  color: #7bc5fa;
+  font-weight: 700;
+}
+.errorMsg {
+  text-align: start;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgb(253, 81, 81);
+  margin-bottom: 1rem;
+}
+.register-err {
+  font-size: 0.85rem;
+  color: rgb(255, 77, 77);
+}
+.register-input > form {
+  display: flex;
+  font-size: 0.85rem;
+  font-weight: 600;
+  flex-direction: column;
+  max-width: 200px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.register-input button{
+  cursor: pointer;
+  align-self: center;
+  margin-top: 1rem;
+  border-radius: 10px;
+
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 15px;
+
+  padding: .75rem;
+  color: #777777;
+  background-color: #55EEDD;
+}
+select{
+  background-color: #F3F4F6;
+  border: 1px solid #E5E7EB;
+  display: block;
+  font-size: 0.9375rem;
+  height: 2.625rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  outline: none;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.login-container {
+  text-align: center;
+  background-color: #1B232A;
+  
+}
+.login-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  min-width: 100%;
+  margin-top: 2rem;
+}
+.login-input > form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 200;
+  font-size: 0.85rem;
+}
+input {
+  font-size: 1rem;
+  padding: .65rem;
+  border: none;
+  font-family: "Noto Sans",sans-serif;
+  margin: 1.25rem 0;
+  width: 100%;
+}
+
+.login-title {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  font-size: 1.75rem;
+  
+  padding: 1.25rem;
+
+  color: #777777;
+  background-color: #1B232A;
+  background-image: linear-gradient(180deg, #5BC99F 28.65%, #55EEDD 100%);;
+
+}
+
+.login-password,
+.login-username {
+  font-size: 0.85rem;
+}
+
+
+.username-label,
+.password-label {
+  font-size: 0.85rem;
+}
+.login-submit-button {
+  cursor: pointer;
+  align-self: center;
+  margin-top: 1rem;
+  border-radius: 10px;
+
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 10px;
+
+  padding: .75rem;
+  color: #777777;
+  background-color: #55EEDD;
+ 
+}
+
+.login-register{
+  margin: 2rem 1rem 0 1rem;
+  font-size: 1rem;
+}
+.login-register-google{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: #777777;
+}
+.login-register-link{
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-weight: 700;
+  color: #7bc5fa;
+}
+.loginError {
+  margin-top:1rem;
+  font-size:1rem;
+  color:rgb(255, 77, 77);
+}
+/* Add custom styles for the Google login button */
+.login-google-button {
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: #4285f4; /* Change the background color */
+color: white; /* Change the text color */
+/* Add any other custom styles you want */
+}
+.loading-container{
+  align-items:center;
+  justify-content:center;
+  display:flex;
+}

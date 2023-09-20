@@ -10,7 +10,7 @@ const ProtectedRoutes=()=> {
             return false
         }
     }
-    const auth=useAuth()
+    const auth = useAuth()
     return auth?<Outlet/>: <Navigate to="/login"/>
 
 }

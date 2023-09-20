@@ -1,7 +1,7 @@
 import HashLoader from "react-spinners/HashLoader";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import { css } from "@emotion/react";
-import "../Loading/loading.css";
+import '../App.css';
 
 const Loading = (props) => {
     const { loadingType, color, size, loading } = props;

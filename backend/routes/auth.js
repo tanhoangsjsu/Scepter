@@ -11,7 +11,7 @@ router.post("/register", authController.registerUser);
 router.post("/login", authController.loginUser);
 
 //LOG OUT
-router.post("/logout", middlewareController.verifyToken, authController.logOut);
+router.post("/logout", authController.logOut);
 
 //Request
 router.post("/request" )
