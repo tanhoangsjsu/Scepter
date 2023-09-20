@@ -18,6 +18,7 @@ const io = new Server(server, {
   cors: {
     origin: 'https://scepter-cs160.netlify.app',
     methods: ["GET", "POST", "DELETE"],
+    credentials: true
   },
 });
 
