@@ -16,7 +16,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: 'https://scepter-cs160.netlify.app',
+    origin: 'http://localhost:3000',
     methods: ["GET", "POST", "DELETE"],
     credentials: true
   },
@@ -78,6 +78,11 @@ io.on('connection', (socket) => {
     socket.join(roomName);
     // Notify the sender that they have joined the private chat
     socket.emit("private_chat_joined", roomName);
+  });
+  
+  socket.on('cancel_ride', ({ rideId }) => {
+    // Broadcast the cancel ride event to all connected clients
+    io.emit('ride_cancelled', { rideId });
   });
 });
 

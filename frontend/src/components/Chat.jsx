@@ -23,7 +23,7 @@ const Chat = () => {
   const acceptedRide = useSelector((state) => state.ride.acceptedRide);
 
   const rideRequestRequestor = rideRequest?.request?.[0]?.requestor || rideRequest?.requestor;
-  const acceptedRideRequestor = acceptedRide?.requestor || acceptedRide[0]?.username;
+  const acceptedRideRequestor = acceptedRide ? (acceptedRide.requestor || acceptedRide[0]?.username) : null;
 
   useEffect(() => {
     if (user && rideRequestRequestor === user.username) {

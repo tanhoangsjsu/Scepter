@@ -21,7 +21,7 @@ const SignUp = () => {
             uniqueIdentifier += characters.charAt(Math.floor(Math.random() * characters.length));
         }
     
-        return 'DL-' + uniqueIdentifier; // You can customize the format based on your requirements
+        return 'DL-' + uniqueIdentifier; 
     };
     
     const formik = useFormik({
@@ -56,7 +56,6 @@ const SignUp = () => {
                 username: values.username,
                 password: values.password,
                 role: currentRole,
-                // Generate a unique identifier (e.g., driver license) for assistance
                 driverLicense: currentRole === 'assistance' ? generateUniqueIdentifier() : '',
             };
             console.log(newUser);

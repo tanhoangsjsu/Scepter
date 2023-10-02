@@ -46,7 +46,7 @@ const Home = () => {
   const isStudent = user && user.role === 'student';
   const isAssistance = user && user.role === 'assistance';
   
-  var marker1, marker2, circle;
+  let marker1, marker2, circle;
   
 
   const style = {

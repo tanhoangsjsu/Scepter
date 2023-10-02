@@ -4,14 +4,14 @@ import { createSlice } from '@reduxjs/toolkit';
 const rideSlice = createSlice({
   name: 'ride',
   initialState: {
-    rideRequest: null,
+    rideRequest: [],
     currentRide: null,
     loading: false,
     acceptedRide: null,
   },
   reducers: {
     setRideRequest: (state, action) => {
-      state.rideRequest = action.payload;
+          state.rideRequests = [...state.rideRequests, action.payload];
     },
     setCurrentRide: (state, action) => {
       state.currentRide = action.payload;

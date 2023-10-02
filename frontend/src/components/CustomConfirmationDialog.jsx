@@ -20,7 +20,7 @@ const CustomConfirmationDialog = ({ open, onClose, onConfirm, onReset,message })
         <Button
           onClick={() => {
             onConfirm();
-            onReset(); // Trigger onReset when Confirm is clicked
+            onReset(); 
           }}
           color="primary"
         >

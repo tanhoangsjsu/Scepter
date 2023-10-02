@@ -32,6 +32,7 @@ const AddressPicker = () => {
 
   const socket = useRef(io.connect(baseSocketURL)); 
 
+
   const provider = useRef();
   const searchRef = useRef(null);
 
@@ -39,8 +40,12 @@ const AddressPicker = () => {
 
   const onInputChanged = (e) => {
     const input = e.target.value;
-    provider.current.search({ query: input }).then(results => {
+    provider.current.search({ query: input })
+    .then(results => {
       setSearchResults(() => results);
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
     });
   };
 

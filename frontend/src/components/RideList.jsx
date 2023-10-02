@@ -17,6 +17,7 @@ const RideList = () => {
   const dispatch = useDispatch(); // Get the dispatch function
   const user = useSelector((state) => state.auth.login.currentUser);
   const currentRide = useSelector((state) => state.ride.currentRide);
+  const rideRequest = useSelector((state) => state.ride.rideRequest);
   
   useEffect(() => {
     const fetchRideRequests = async () => {
@@ -31,14 +32,10 @@ const RideList = () => {
         console.error("Error fetching ride requests", error);
       }
     };
-  fetchRideRequests();
+  fetchRideRequests(); 
     socket.current.on("receive_request", (request) => {
-      console.log(request);
       // Dispatch the setRideRequest action with the new request
       dispatch(setRideRequest(request));
-
-      // Add it to the local state if needed
-      setRide((prevRequests) => [...prevRequests, request]);
     });
 
     return () => {
@@ -92,7 +89,7 @@ const handleDecline =(request) =>{
   updatedReceive.splice(index, 1);
   setRide(updatedReceive);
 }
-
+console.log(rideRequest);
   return (
     // !currentRide ?
     <Box

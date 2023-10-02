@@ -22,15 +22,15 @@ const LandingPage = () => {
                 className="login" 
                 onClick={goToSignIn}
                 sx={{
-                    backgroundColor: '#55EEDD', // Background color
-                    color: '#777777',          // Text color
-                    borderRadius: '14px',      // Border radius
-                    fontFamily: 'Sora, sans-serif', // Font family
+                    backgroundColor: '#55EEDD', 
+                    color: '#777777',          
+                    borderRadius: '14px',      
+                    fontFamily: 'Sora, sans-serif', 
                     fontWeight:'extra-bold',
-                    padding: '8px 15px',       // Padding
-                    width: '90px',            // Button width
-                    height: '50px',            // Button height
-                    fontSize: '12px',          // Font size
+                    padding: '8px 15px',       
+                    width: '90px',           
+                    height: '50px',            
+                    fontSize: '12px',          
                     marginBottom:'12px',
                   }}
             >
@@ -45,7 +45,7 @@ const LandingPage = () => {
                       borderRadius: '14px',
                       fontFamily: 'Sora, sans-serif',
                       padding: '8px 15px',
-                      width: '90px',            // Button width
+                      width: '90px',           
                       height: '50px',
                       fontSize: '12px',
                     }}

@@ -17,8 +17,9 @@ const authSlice = createSlice({
             message:null,
         },
         logout: {
-            error: false,
             isFetching: false,
+            currentUser: null,
+            error: false,
             success: false,
         },
     },
